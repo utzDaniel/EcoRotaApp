@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Comece</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="header">
+    <ion-title class="title" size="large">Iniciar</ion-title>
+    <p class="subtitle">Ao criar uma conta</p>
+  </div>
+  <form [formGroup]="cadastroForm" novalidate>
+    <div class="ion-padding">
+      <ion-item >
+        <ion-input class="input" formControlName="nome" placeholder="Nome completo" />
+        <ion-icon slot="end" name="person-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.cadastroForm.controls?.['nome'].touched && this.cadastroForm.controls?.['nome'].invalid">
+        <ion-text *ngIf="errorControl.nome.errors?.required" class="errorInput" color="danger">O nome completo é obrigatório.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" formControlName="email" placeholder="email" />
+        <ion-icon slot="end" name="mail-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.cadastroForm.controls?.['email'].touched && this.cadastroForm.controls?.['email'].invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required" class="errorInput" color="danger">O e-mail é obrigatório.</ion-text>
+        <ion-text *ngIf="errorControl.email.errors?.pattern" class="errorInput" color="danger">Forneça um e-mail válido.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" type="password" formControlName="senha" placeholder="senha" />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.cadastroForm.controls?.['senha'].touched && this.cadastroForm.controls?.['senha'].invalid">
+        <ion-text *ngIf="errorControl.senha.errors?.required" class="errorInput" color="danger">A senha é obrigatório.</ion-text>
+      </div>
+
+      <div class="loginLink">
+        <p class="p">Já é membro? <a [routerLink]="['/login']" style="color: #FFC33F">Conecte-se</a></p>
+      </div>
+    </div>
+
+    <ion-fab *ngIf="cadastroForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+      <ion-fab-button (click)="cadastrar()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>
