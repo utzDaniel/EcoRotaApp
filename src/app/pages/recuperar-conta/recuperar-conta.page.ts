@@ -3,11 +3,11 @@ import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-resetar-senha',
-  templateUrl: './resetar-senha.page.html',
-  styleUrls: ['./resetar-senha.page.scss'],
+  selector: 'app-recuperar-conta',
+  templateUrl: './recuperar-conta.page.html',
+  styleUrls: ['./recuperar-conta.page.scss'],
 })
-export class ResetarSenhaPage implements OnInit {
+export class RecuperarContaPage implements OnInit {
 
   email:any
   constructor(private toastController: ToastController,
@@ -33,5 +33,9 @@ export class ResetarSenhaPage implements OnInit {
     toast.onDidDismiss().then(()=>{
       this.router.navigate(['/login']);
     })
+  }
+
+  voltar(): void{
+    this.router.navigate(['/login']);
   }
 }

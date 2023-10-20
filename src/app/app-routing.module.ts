@@ -22,8 +22,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   {
-    path: 'resetar-senha',
-    loadChildren: () => import('./pages/resetar-senha/resetar-senha.module').then( m => m.ResetarSenhaPageModule)
+    path: 'recuperar-conta',
+    loadChildren: () => import('./pages/recuperar-conta/recuperar-conta.module').then( m => m.RecuperarContaPageModule)
   },
   {
     path: 'confirmacao',

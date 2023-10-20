@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ResetarSenhaPageRoutingModule } from './resetar-senha-routing.module';
+import { RecuperarContaPageRoutingModule } from './recuperar-conta-routing.module';
 
-import { ResetarSenhaPage } from './resetar-senha.page';
+import { RecuperarContaPage } from './recuperar-conta.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ResetarSenhaPageRoutingModule
+    RecuperarContaPageRoutingModule
   ],
-  declarations: [ResetarSenhaPage]
+  declarations: [RecuperarContaPage]
 })
-export class ResetarSenhaPageModule {}
+export class RecuperarContaPageModule {}

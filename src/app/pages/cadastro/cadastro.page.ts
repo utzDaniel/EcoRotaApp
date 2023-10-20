@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
-import { User } from 'src/app/core/types/type';
+import { UserCadastro } from 'src/app/core/types/type';
 
 
 @Component({
@@ -31,9 +31,9 @@ export class CadastroPage implements OnInit {
     return this.cadastroForm.controls;
   }
  
-  cadastrar(){
+  cadastrar(): void{
     if (this.cadastroForm?.valid) {
-      const novoCadastro = this.cadastroForm.getRawValue() as User;
+      const novoCadastro = this.cadastroForm.getRawValue() as UserCadastro;
       this.cadastroService.cadastrar(novoCadastro).subscribe({
         next: (value) => {
           console.log('Cadastro realizado com sucesso', value);
@@ -44,7 +44,7 @@ export class CadastroPage implements OnInit {
         }
       });
      }else {
-      return console.log('Forneça todos os valores necessários!');
+      console.log('Forneça todos os valores necessários!');
     }
   }
 

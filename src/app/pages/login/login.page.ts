@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AutenticacaoService } from 'src/app/core/services/autenticacao.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -18,14 +17,14 @@ export class LoginPage implements OnInit {
       public formBuilder: FormBuilder) { }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       senha: ['', [Validators.required]]
     });
   }
 
-  login() {
+  login(): void {
     if(this.loginForm?.valid) {
       const email = this.loginForm.value.email;
       const senha = this.loginForm.value.senha;
@@ -40,7 +39,7 @@ export class LoginPage implements OnInit {
         },
       })
     }else {
-      return console.log('Forneça todos os valores necessários!');
+      console.log('Forneça todos os valores necessários!');
     }
   }
   

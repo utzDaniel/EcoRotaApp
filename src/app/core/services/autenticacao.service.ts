@@ -4,10 +4,8 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { UserService } from './user.service';
+import { AuthResponse } from '../types/type';
 
-interface AuthResponse {
-  access_token: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +21,13 @@ export class AutenticacaoService {
 
   autenticar(email: string, senha: string): Observable<HttpResponse<AuthResponse>> {
     return this.http.post<AuthResponse>(
-      `${this.apiUrl}/auth/login`,
+      `${this.apiUrl}/login`,
       { email, senha },
       { observe: 'response'}
     ).pipe(
       tap((response: HttpResponse<AuthResponse>) => {
-        const authToken = response.body?.access_token || '';
-        this.userService.salvarToken(authToken);
+        const authToken = response.body?.token || '';
+        this.userService.salvarToken(authToken, email);
       })
     );
   }
