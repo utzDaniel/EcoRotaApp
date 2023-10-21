@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/conta" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="editarForm" novalidate>
+    <div class="ion-padding">
+
+      <ion-item>
+        <ion-input class="input" placeholder="email" disabled="true" value="asd"/>
+        <ion-icon slot="end" name="mail-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item >
+        <ion-input class="input" formControlName="nome" placeholder="Nome completo"/>
+        <ion-icon slot="end" name="person-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.editarForm.controls?.['nome'].touched && this.editarForm.controls?.['nome'].invalid">
+        <ion-text *ngIf="errorControl.nome.errors?.required" class="errorInput" color="danger">O nome completo é obrigatório.</ion-text>
+      </div>
+
+      <ion-item>
+        <ion-input class="input" type="password" formControlName="senhaAtual" placeholder="senha atual" />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.editarForm.controls?.['senhaAtual'].touched && this.editarForm.controls?.['senhaAtual'].invalid">
+        <ion-text *ngIf="errorControl.senhaAtual.errors?.required" class="errorInput" color="danger">A senha atual é obrigatório.</ion-text>
+      </div>
+
+      <ion-item>
+        <ion-input class="input" type="password" formControlName="novaSenha" placeholder="nova senha" />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input class="input" type="password" formControlName="novaSenhaRepetida" placeholder="repita nova senha" />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+
+    </div>
+
+    <ion-fab *ngIf="editarForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+      <ion-fab-button (click)="editar()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+</ion-content>

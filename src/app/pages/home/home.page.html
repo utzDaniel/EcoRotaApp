@@ -1,17 +1,20 @@
-<ion-header [translucent]="true" >
-  <ion-toolbar >
-    <ion-title slot="start">
-      EcoRota
-    </ion-title>
-    <ion-button slot="end" fill="clear" (click)="logout()">Sair</ion-button>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
 
-  </ion-toolbar>
-</ion-header>
+    <ion-tab-button tab="transporte" href="/transporte">
+      <ion-icon aria-hidden="true" name="location"></ion-icon>
+      <ion-label>Ir</ion-label>
+    </ion-tab-button>
 
-<ion-content [fullscreen]="true">
-  <div id="container">
-    <h1>Ola, </h1>
-    <strong>{{user?.nome}}</strong>
-  </div>
-</ion-content>
-  
+    <ion-tab-button tab="historico" href="/historico">
+      <ion-icon aria-hidden="true" name="stats-chart"></ion-icon>
+      <ion-label>Historico</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="conta" href="/conta">
+      <ion-icon aria-hidden="true" name="person"></ion-icon>
+      <ion-label>Conta</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

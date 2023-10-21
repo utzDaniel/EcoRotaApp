@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
       this.authService.autenticar(email, senha).subscribe({
         next: (value) => {
           console.log('Autenticado com sucesso', value)
-          this.router.navigate(['/home'])
+          this.router.navigate(['/'])
           this.loginForm.reset();
         },
         error: (err) => {
