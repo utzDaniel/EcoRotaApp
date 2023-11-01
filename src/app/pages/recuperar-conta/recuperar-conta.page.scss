@@ -1,27 +1,18 @@
 .input{
     font-weight: 300;
-}ion-item {
+}
+
+ion-item {
     --background: #f1f1f1;
     border-radius: 10px;
     margin-bottom: 16px;
 }
-.header{
-    margin-top: 100px;
-    margin-bottom: 80px;
+
+ion-header{
     text-align: center;
-
-    .subtitle{
-        color: gray;
-        font-size: 0.9rem;
-    }
-    .title{
-        font-size: 2rem;
-    }
 }
 
-.enviarBtn{
+ion-button{
     margin: 30px;
 }
-.voltarBtn{
-    margin: 30px;
-}
+

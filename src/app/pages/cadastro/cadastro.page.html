@@ -1,14 +1,12 @@
 <ion-content [fullscreen]="true">
+
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Comece</ion-title>
+      <ion-img alt="Foto do usuario" src="assets/img/EcoRota.png" ></ion-img>
+      <ion-text>Crie sua conta agora</ion-text>
     </ion-toolbar>
   </ion-header>
 
-  <div class="header">
-    <ion-title class="title" size="large">Iniciar</ion-title>
-    <p class="subtitle">Ao criar uma conta</p>
-  </div>
   <form [formGroup]="cadastroForm" novalidate>
     <div class="ion-padding">
       <ion-item >
@@ -38,10 +36,10 @@
       </div>
 
       <div class="loginLink">
-        <p class="p">Já é membro? <a [routerLink]="['/login']" style="color: #FFC33F">Conecte-se</a></p>
+        <p class="p">Já é membro? <a [routerLink]="['/login']" style="color: #28BA62">Conecte-se</a></p>
       </div>
     </div>
-
+    
     <ion-fab *ngIf="cadastroForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
       <ion-fab-button (click)="cadastrar()">
         <ion-icon name="chevron-forward"></ion-icon>

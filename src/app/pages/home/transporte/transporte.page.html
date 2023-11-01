@@ -1,3 +1,92 @@
 <ion-content>
-  <div>transporte</div>
+  
+  <ion-grid [fixed]="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-col> 
+        <ion-searchbar color="light" search-icon="add-circle-outline" [debounce]="1000" (ionInput)="handleInput($event, 1)" (ionFocus)="handleFocus(1)" (ionBlur)="handleBlur(1)" placeholder="Insira local de partida"></ion-searchbar>
+        <ion-list *ngIf="focus1">
+          <ion-item *ngFor="let result of results1">
+            <ion-label>{{ result }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid [fixed]="true">
+    <ion-row class="ion-justify-content-center">
+      <ion-col> 
+        <ion-searchbar *ngIf="habilitar2" color="light" search-icon="add-circle-outline" [debounce]="1000" (ionInput)="handleInput($event, 2)" (ionFocus)="handleFocus(2)" (ionBlur)="handleBlur(2)" placeholder="Insira local de destino"></ion-searchbar>
+        <ion-list *ngIf="focus2">
+          <ion-item *ngFor="let result of results2">
+            <ion-label>{{ result }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col> 
+        <ion-img class="center" alt="mapa do app" src="assets/img/mapa.png" ></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+   <ion-list lines="none" >
+
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-icon name="chevron-up" size="small" id="open-custom-dialog" expand="block"></ion-icon>
+      </ion-item-divider>
+  
+      <ion-item>
+        <ion-label>
+          <ion-text>3H 20 min - </ion-text>
+          <ion-note color="medium" class="ion-text-wrap"> Chega às 22:15 </ion-note>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-card>
+          <ion-card-content>
+            <ion-icon name="bus" size="small"></ion-icon>
+            <ion-text> 7449</ion-text> 
+          </ion-card-content>
+        </ion-card> 
+        <ion-text class="seta"> > </ion-text> 
+        <ion-icon name="bicycle"></ion-icon> 
+        <ion-text class="seta"> > </ion-text>   
+        <ion-icon name="walk"></ion-icon>
+      </ion-item>
+ 
+    </ion-item-group>
+  </ion-list>
+
+  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+    <ng-template>
+      <div class="wrapper">
+        <h1>Opções</h1>
+
+        <ion-list lines="none">
+          <ion-item button="true" detail="false" (click)="modal.dismiss()">
+            <ion-icon name="person-circle"></ion-icon>
+            <ion-label>Item 1</ion-label>
+          </ion-item>
+          <ion-item button="true" detail="false" (click)="modal.dismiss()">
+            <ion-icon name="person-circle"></ion-icon>
+            <ion-label>Item 2</ion-label>
+          </ion-item>
+          <ion-item button="true" detail="false" (click)="modal.dismiss()">
+            <ion-icon name="person-circle"></ion-icon>
+            <ion-label>Item 3</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+
+  
 </ion-content>

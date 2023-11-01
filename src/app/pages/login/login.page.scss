@@ -1,3 +1,6 @@
+ion-header{
+    text-align: center;
+}
 
 .input{
     font-weight: 300;
@@ -7,19 +10,7 @@ ion-item {
     border-radius: 10px;
     margin-bottom: 16px;
 }
-.header{
-    margin-top: 100px;
-    margin-bottom: 80px;
-    text-align: center;
 
-    .subtitle{
-        color: gray;
-        font-size: 0.9rem;
-    }
-    .title{
-        font-size: 2rem;
-    }
-}
 .cadastroLink{
     display: flex;
     margin: auto;
@@ -52,4 +43,8 @@ ion-item {
     font-weight: 300;
     font-size: small;
     padding-top: -16px;
+}
+
+ion-button{
+    margin: 0px 30px 0px 30px;
 }

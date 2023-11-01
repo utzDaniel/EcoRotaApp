@@ -1,0 +1,112 @@
+ion-col {
+    border: solid 0px #fff;
+    color: #fff;
+    text-align: left;
+    padding: 0px;
+    ion-searchbar {
+        background-color: #07c23f9a;
+    } 
+    ion-img{
+        padding: 1px;
+    }
+  }
+
+  ion-grid {
+    --ion-grid-columns: 1;
+    --ion-grid-width: 100%;
+    --ion-grid-width-xs: 100%;
+    --ion-grid-width-sm: 100%;
+    --ion-grid-width-md: 100%;
+    --ion-grid-width-lg: 100%;
+    --ion-grid-width-xl: 100%;
+    --ion-grid-padding: 0px;
+    --ion-grid-padding-lg: 0px;
+    --ion-grid-padding-md: 0px;
+    --ion-grid-padding-sm: 0px;
+    --ion-grid-padding-xl: 0px;
+    --ion-grid-padding-xs: 0px;
+  }
+
+  ion-modal#example-modal {
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  
+  ion-modal#example-modal h1 {
+    margin: 20px 20px 10px 20px;
+  }
+  
+  ion-modal#example-modal ion-icon {
+    margin-right: 6px;
+    width: 48px;
+    height: 48px;
+    padding: 4px 0;
+    color: #aaaaaa;
+  }
+  
+  ion-modal#example-modal .wrapper {
+    margin-bottom: 10px;
+  }
+
+  ion-label strong {
+    display: block;
+    max-width: calc(100% - 60px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+ }
+   
+ ion-label ion-note {
+     font-size: 0.9rem;
+ }
+
+ ion-card {
+    --background: #fff;
+    --color: #0d0e0d;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  ion-card-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px;
+    margin-right: 3px;
+    border-bottom: 3px solid red;
+    border-top: 1px solid rgb(10, 10, 10);
+    border-left: 1px solid rgb(10, 10, 10);
+    border-right: 1px solid rgb(10, 10, 10);
+    border-radius: 0px;
+  }
+
+  .seta{
+    padding: 0px 5px 0px 5px;
+  }
+
+  ion-item-group{
+    flex: none;
+    justify-content:center;
+      align-items: center;
+      align-self: center;
+  }
+  ion-item-divider{
+    display: flex;
+    flex: none;
+    padding: 0px;
+    justify-content:center;
+    align-items: center;
+    align-self: center;
+
+    ion-icon{
+      justify-content:center;
+      align-items: center;
+      align-self: center;
+    }
+
+  }
+ 

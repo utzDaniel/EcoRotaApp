@@ -1,15 +1,5 @@
-.header{
-    margin-top: 100px;
-    margin-bottom: 80px;
+ion-header{
     text-align: center;
-
-    .subtitle{
-        color: gray;
-        font-size: 0.9rem;
-    }
-    .title{
-        font-size: 2rem;
-    }
 }
 
 .input{
@@ -67,4 +57,7 @@ ion-item {
         // border-radius: 10px;
         // margin-bottom: 16px;
     }
+}
+ion-button{
+    margin: 0px 30px 0px 30px;
 }

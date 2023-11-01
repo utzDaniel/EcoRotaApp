@@ -1,21 +1,24 @@
 <ion-content [fullscreen]="true">
-  <div class="header">
-    <ion-title class="title" size="large">Bem vindo de volta</ion-title>
-    <p class="subtitle">Faça login para acessar sua conta</p>
-  </div>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-img alt="Foto do usuario" src="assets/img/EcoRota.png" ></ion-img>
+      <ion-text>Faça login para acessar sua conta </ion-text>
+    </ion-toolbar>
+  </ion-header>
+  
   <form [formGroup]="loginForm"  novalidate>
     <div class="ion-padding">
 
       <ion-item>
         <ion-input placeholder="email" formControlName="email" class="input" />
         <ion-icon name="person-outline"></ion-icon>
-        
       </ion-item>
-    
       <div style="padding-top: -26px;padding-bottom: 16px;" *ngIf="this.loginForm.controls?.['email'].touched && this.loginForm.controls?.['email'].invalid">
           <ion-text *ngIf="errorControl.email.errors?.required" class="errorInput" color="danger">O e-mail é obrigatório.</ion-text>
           <ion-text *ngIf="errorControl.email.errors?.pattern" class="errorInput" color="danger">Forneça um e-mail válido.</ion-text>
       </div>
+      
       <ion-item>
         <ion-input type="password" placeholder="senha" formControlName="senha" class="input" />
         <ion-icon name="lock-closed-outline"></ion-icon>
@@ -25,12 +28,12 @@
       </div>
     
       <div class="forgotsenha">
-        <a [routerLink]="['/recuperar-conta']" style="color: #FFC33F">Esqueceu sua senha?</a>
+        <a [routerLink]="['/recuperar-conta']" style="color: #28BA62">Esqueceu sua senha?</a>
       </div>
 
     </div>
     <div class="cadastroLink">
-      <p class="p">Novo membro? <a [routerLink]="['/cadastro']" style="color: #FFC33F">Inscreva-se agora</a></p>
+      <p class="p">Novo membro? <a [routerLink]="['/cadastro']" style="color: #28BA62">Inscreva-se agora</a></p>
     </div>
 
     <ion-fab *ngIf="loginForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
