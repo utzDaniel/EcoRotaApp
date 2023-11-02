@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { UserEditar } from 'src/app/core/types/type';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-editar-conta',
@@ -11,20 +13,27 @@ import { UserEditar } from 'src/app/core/types/type';
 })
 export class EditarContaPage implements OnInit {
 
+  user: User = new User();
   editarForm: FormGroup;
 
   constructor(private cadastroService: CadastroService,
     private router: Router,
+    private route: ActivatedRoute,
     public formBuilder: FormBuilder) { }
 
   
   ngOnInit() :void {
+    this.route.paramMap.subscribe(params => {
+      this.user.nome = params.get('nome');
+      this.user.email = params.get('email');
+    });
     this.editarForm = this.formBuilder.group({
-      nome:["this.nome", [Validators.required]],
+      nome:[this.user.nome, [Validators.required]],
       senhaAtual: ['', [Validators.required]],
       novaSenha: ['', ],
       novaSenhaRepetida: ['', ]
     });
+    
   }
 
   get errorControl() {

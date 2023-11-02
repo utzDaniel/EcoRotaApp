@@ -18,17 +18,21 @@ export class ContaPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.cadastro.buscarCadastro().subscribe((user: User) =>{
-      this.user = user;
-    })
+    // this.cadastro.buscarCadastro().subscribe((user: User) =>{
+    //   this.user = user;
+    // })
+    this.user = {
+      'nome': 'Daniel',
+      'email': 'teste@gmail.com'
+    }
   }
 
   editar(): void {
-    this.router.navigate(['/conta/editar']);
+    this.router.navigate(['/conta/editar', this.user]);
   }
 
   preferencia(): void {
-    this.router.navigate(['/conta/preferencia']);
+    this.router.navigate(['/conta/preferencia', this.user]);
   }
 
   sair(): void {

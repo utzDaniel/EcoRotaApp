@@ -1,0 +1,25 @@
+
+ion-content{
+    max-height: 100%;
+}
+ion-list-header{
+    padding: 0%;
+}
+
+
+.grid__1{
+   
+    max-height: 60%;
+    min-height: 60%;
+    
+}
+
+.grid__2{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    ion-img{
+        margin: auto;
+        width: 50%;
+    }
+}

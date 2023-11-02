@@ -1,6 +1,6 @@
-export interface User {
-    nome: string;
-    email: string;
+export class User {
+    nome: string | null;
+    email: string | null;
   }
 
   export interface Login {
@@ -23,4 +23,9 @@ export interface User {
     novaSenha: string;
     novaSenhaRepetida: string;
     senhaAtual: string;
+  }
+
+  export interface Opcao {
+    label: string;
+    value: any;
   }

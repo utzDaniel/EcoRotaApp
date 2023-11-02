@@ -8,50 +8,38 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list lines="none" color="success">
-    <ion-list-header>
-      <ion-label>Meios de transporte</ion-label>
-    </ion-list-header>
+  <ion-grid class="grid__1">
+    <ion-row>
+      <ion-list lines="none" color="success">
+        <ion-list-header>
+          <ion-label>Meios de transporte: </ion-label>
+        </ion-list-header>
+          <ion-item *ngFor="let opcao of opcoesTransporte">
+            <ion-icon [name]="selecionarIcon(opcao.label)" ></ion-icon>
+            <ion-toggle color="success" [(ngModel)]="opcao.value" [checked]="opcao.value">{{ opcao.label }}</ion-toggle>
+          </ion-item>
+      </ion-list>
+    
+      <ion-radio-group  value="opcaoSelecionadaTrajeto" [(ngModel)]="opcaoSelecionadaTrajeto" value="end">
+        <ion-list lines="none" color="success">
+          <ion-list-header>
+            Opções de trajeto:
+          </ion-list-header>
+          <ion-item *ngFor="let opcao of opcoesTrajeto">
+            <ion-radio [value]="opcao.value" labelPlacement="end" justify="start" color="success">
+              {{ opcao.label }}
+            </ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-radio-group>
 
-    <ion-item>
-      <ion-icon name="bus"></ion-icon>
-      <ion-toggle color="warning">Ônibus</ion-toggle>
-    </ion-item>
+    </ion-row>
+  </ion-grid>
 
-    <ion-item>
-      <ion-icon name="subway"></ion-icon>
-      <ion-toggle color="warning">Metro</ion-toggle>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="bicycle"></ion-icon>
-      <ion-toggle color="warning">Bicicleta</ion-toggle>
-    </ion-item>
-
-  </ion-list>
-
-  <ion-list lines="none" color="success">
-    <ion-list-header>
-      <ion-label>Opções de trajeto</ion-label>
-    </ion-list-header>
-    <ion-radio-group value="strawberries">
-      
-      <ion-item>
-        <ion-radio value="grapes" color="primary"></ion-radio>
-        <ion-label>Melhor trajeto</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-radio value="strawberries" color="primary"></ion-radio>
-        <ion-label>Mais sustentável</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-radio value="cherries" color="primary"></ion-radio>
-        <ion-label>Mais econômico</ion-label>
-      </ion-item>
-
-    </ion-radio-group>
-  </ion-list>
+  <ion-grid class="grid__2">
+    <ion-row>
+      <ion-img alt="imagem do aplicativo" src="assets/img/EcoRota.png" ></ion-img>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
