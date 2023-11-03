@@ -3,12 +3,8 @@
   <ion-grid [fixed]="true">
     <ion-row class="ion-justify-content-center">
       <ion-col> 
-        <ion-searchbar color="light" search-icon="add-circle-outline" [debounce]="1000" (ionChange)="handleChange($event)" (ionClear)="handleClear(1)" (ionInput)="handleInput($event)" (ionFocus)="handleFocus(1)" (ionBlur)="handleBlur(1)" placeholder="Insira local de partida"></ion-searchbar>
-        <ion-list *ngIf="focus1">
-          <ion-item *ngFor="let result of results1">
-            <ion-label>{{ result }}</ion-label>
-          </ion-item>
-        </ion-list>
+        <app-buscar-bar [data]="dataLocalPartida" texto="Insira local de partida" (retornar)="retornoLocalPartida($event)">
+        </app-buscar-bar>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -16,12 +12,9 @@
   <ion-grid [fixed]="true">
     <ion-row class="ion-justify-content-center">
       <ion-col> 
-        <ion-searchbar *ngIf="value1" color="light" search-icon="add-circle-outline" [debounce]="1000" (ionClear)="handleClear(2)" (ionInput)="handleInput($event)" (ionFocus)="handleFocus(2)" (ionBlur)="handleBlur(2)" placeholder="Insira local de destino"></ion-searchbar>
-        <ion-list *ngIf="focus2">
-          <ion-item *ngFor="let result of results2">
-            <ion-label>{{ result }}</ion-label>
-          </ion-item>
-        </ion-list>
+        <app-buscar-bar *ngIf="localPartida" 
+          [data]="dataLocalDestino" texto="Insira local de destino" (retornar)="retornoLocalDestino($event)">
+        </app-buscar-bar>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -86,7 +79,5 @@
       </div>
     </ng-template>
   </ion-modal>
-
-
   
 </ion-content>

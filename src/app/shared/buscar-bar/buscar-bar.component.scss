@@ -1,0 +1,20 @@
+ion-searchbar {
+    background-color: #28BA62;
+} 
+
+ion-label strong {
+    display: block;
+    //max-width: calc(100% - 60px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+ }
+
+ion-list{
+    min-width: 97%;
+    position: absolute;
+    top: 51px;
+    margin: 0px 9px 0px 9px;
+    
+    //left: 47px;
+    z-index: 999; /* Para garantir que fique acima de outros elementos */
+  }

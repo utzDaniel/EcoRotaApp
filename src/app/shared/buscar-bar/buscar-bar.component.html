@@ -1,0 +1,27 @@
+<ion-searchbar color="light" 
+  search-icon="add-circle-outline" 
+  [debounce]="1000" 
+  (ionChange)="handleChange()" 
+  (ionClear)="handleClear()" 
+  (ionInput)="handleInput($event)" 
+  (ionFocus)="handleFocus()" 
+  (ionBlur)="handleBlur()"
+  [placeholder]="texto" 
+  [value]="value">
+</ion-searchbar>
+
+<ion-list
+  [inset]="false" 
+  *ngIf="focus">
+  <ion-item 
+    (click)="selectItem(result)" 
+    *ngFor="let result of results" 
+    [button]="true" 
+    detail="false"
+    lines="none"
+    >
+    <ion-label>
+      {{ result }}
+    </ion-label>
+  </ion-item>
+</ion-list>
