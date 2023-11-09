@@ -1,0 +1,51 @@
+
+ion-card-title{
+  font-size: 1.2rem;
+}
+
+  .item_card{
+      --background: #fff;
+      --color: #0d0e0d;
+      margin:  0px 0px 0px 0px;
+      border-radius: 0px;
+      box-shadow: none;
+      border-bottom: double;
+  }
+  
+  .item_card_primeiro{
+    --background: #fff;
+    --color: #0d0e0d;
+    margin:  0px 0px 0px 0px;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: none;
+    border-bottom: double;
+  }
+  
+  .item_card_content{
+      padding: 5px 20px 5px 20px;
+      font-size: 0.9rem;
+  }
+  
+  .icon_item{
+      display: flex;
+      justify-content: flex-end;
+  }
+  
+  .icon_item_card{
+     margin: 0px;
+     padding: 0px 5px 0px 5px;
+     border-radius: 0px;
+     box-shadow: none;
+  }
+   
+  .icon_item_card_content{
+      display: grid;
+      justify-items: end;
+      padding: 5px;
+  }
+  
+  .icon_item_card_text{
+    font-size: 0.8rem;
+  }
+   
+  

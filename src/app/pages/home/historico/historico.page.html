@@ -1,3 +1,18 @@
 <ion-content>
-  <div>historico</div>
+
+  <ion-grid class="grid__1" color="dark">
+    <ion-row>
+      <ion-card >
+        <ion-card-content>
+          <ion-icon name="cash" size="large"></ion-icon>
+          <ion-text> {{ 10.0 | currency : 'BRL'}}</ion-text> 
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+
+  <app-historico-items [viagens]="viagens"></app-historico-items>
+
+
+  
 </ion-content>

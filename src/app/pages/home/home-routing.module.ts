@@ -21,7 +21,7 @@ const routes: Routes = [
     },
     {
       path: '',
-      redirectTo: 'transporte',
+      redirectTo: 'historico',
       pathMatch: 'full'
     }
   ]

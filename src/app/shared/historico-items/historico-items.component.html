@@ -1,0 +1,49 @@
+<ion-card *ngFor="let item of items" [ngClass]="item == items[0] ? 'item_card_primeiro' : 'item_card'">
+  <ion-card-header>
+    <ion-card-title>{{ item.data | date:'dd/MM/yyyy HH:mm' }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="item_card_content">
+    <b>Partida: </b> {{ item.partida}} <br/>
+    <b>Destino: </b> {{ item.destino}}
+
+    <div class="icon_item">
+
+      <ion-card class="icon_item_card">
+        <ion-card-content class="icon_item_card_content">
+          <ion-icon name="footsteps" size="large" color="primary"></ion-icon>
+          <ion-text class="icon_item_card_text"> {{ item.distancia}} km</ion-text> 
+        </ion-card-content>
+      </ion-card> 
+  
+      <ion-card class="icon_item_card">
+        <ion-card-content class="icon_item_card_content">
+          <ion-icon name="hourglass" size="large" color="warning"></ion-icon>
+          <ion-text class="icon_item_card_text"> {{ item.tempo}} min</ion-text> 
+        </ion-card-content>
+      </ion-card> 
+  
+      <ion-card class="icon_item_card">
+        <ion-card-content class="icon_item_card_content">
+          <ion-icon name="flame" size="large" color="danger"></ion-icon>
+          <ion-text class="icon_item_card_text"> {{ item.carbono}} kg</ion-text> 
+        </ion-card-content>
+      </ion-card> 
+  
+      <ion-card class="icon_item_card">
+        <ion-card-content class="icon_item_card_content">
+          <ion-icon name="cash" size="large" color="success"></ion-icon>
+          <ion-text class="icon_item_card_text"> {{ item.dinheiro | currency : 'BRL'}}</ion-text> 
+        </ion-card-content>
+      </ion-card>
+  
+    </div>
+    
+  </ion-card-content>
+
+</ion-card>
+
+<ion-infinite-scroll color="primary" (ionInfinite)="onIonInfinite($event)">
+  <ion-infinite-scroll-content color="primary" loadingText="Carregando..." loadingSpinner="bubbles">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

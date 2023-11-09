@@ -29,3 +29,13 @@ export class User {
     label: string;
     value: any;
   }
+
+  export interface Viagens {
+    data: string
+    partida: string;
+    destino: string;
+    distancia: number;
+    tempo: number;
+    carbono: number;
+    dinheiro: number;
+  }
