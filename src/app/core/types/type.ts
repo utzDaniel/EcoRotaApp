@@ -61,3 +61,9 @@ export class User {
     carbono: number;
     dinheiro: number;
   }
+
+  export interface Trajeto {
+    nome: string;
+    numero: number;
+    tempo: number;
+  }

@@ -1,0 +1,10 @@
+
+<ion-item detail="false" lines="none">
+  <ion-card *ngFor="let item of itens">
+    <ion-text *ngIf="item != itens[0]" class="text_seta"> > </ion-text>
+    <ion-card-content [ngClass]="isBus(item.nome) ? 'card_content_trajeto_bus' : 'card_content_trajeto'">
+      <ion-icon [name]="selectIcon(item.nome)" size="small"></ion-icon>
+      <ion-text class="text_trajeto"> {{ selectText(item) }}</ion-text> 
+    </ion-card-content>
+  </ion-card>    
+</ion-item>

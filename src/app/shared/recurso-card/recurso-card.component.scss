@@ -1,0 +1,31 @@
+ion-item{
+  display: grid;
+  align-content: center;
+  justify-content: end;
+  align-items: center;
+  justify-items: center;
+  margin:-14px 0px;
+}
+
+ion-card{
+  margin: 0px;
+  padding: 0px 5px 0px 5px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+ion-card-content{
+  display: grid;
+  justify-items: center;
+  padding: 0px;
+  margin: 0px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-text{
+  font-size: 0.6rem;
+} 
+     
+    

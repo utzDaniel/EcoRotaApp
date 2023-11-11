@@ -1,0 +1,36 @@
+  ion-button{
+    padding: 0px;
+    margin: -2%;
+  }
+
+  ion-card{
+    height: 14vh;
+    margin: 0px 0px 2px 0px;
+    padding: 0;
+  }
+
+  ion-card-header{
+    margin: 2px 0px 2px 0px;
+    padding: 0px 5px 0px 5px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  ion-card-title{
+    font-size: 1rem;
+    margin: 0;
+    text-transform: none;
+  }
+
+  ion-card-subtitle{
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: none;
+  }
+
+  ion-card-content{
+    margin: 0px;
+    padding: 0px;
+  }

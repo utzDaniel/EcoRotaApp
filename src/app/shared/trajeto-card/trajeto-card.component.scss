@@ -1,0 +1,51 @@
+ion-item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+ion-card  {
+    display: contents;
+    --background: #fff;
+    --color: #0d0e0d;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  .card_content_trajeto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 0px;
+    margin-right: 3px;
+  }
+  .card_content_trajeto_bus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px;
+    margin-right: 3px;
+    border-bottom: 3px solid red;
+    border-top: 1px solid rgb(10, 10, 10);
+    border-left: 1px solid rgb(10, 10, 10);
+    border-right: 1px solid rgb(10, 10, 10);
+    border-radius: 0px;
+  }
+
+  ion-icon{
+    justify-content:center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .text_trajeto{
+    padding: 0px 2px 0px 2px;
+  }
+
+  .text_seta{
+    padding: 0px 5px 0px 5px;
+  }

@@ -11,6 +11,8 @@ export class TransportePage implements OnInit {
   dataLocalDestino: String[];
   localPartida: string | undefined;
   localDestino: string | undefined;
+  openDrawer: boolean;
+  classOpenDrawer: boolean;
 
   constructor() { }
 
@@ -27,16 +29,27 @@ export class TransportePage implements OnInit {
       'New York',
       'Panama City',
     ];
-
+    this.openDrawer = false;
+    this.classOpenDrawer = true;
   }
 
   retornoLocalPartida(dados: any) :void {
+    this.openDrawer = false;
+    this.classOpenDrawer = true;
     this.localPartida = dados;
     this.dataLocalDestino = [...this.dataLocalPartida.filter((d) => d !== this.localPartida)];
   }
 
   retornoLocalDestino(dados: any) :void {
     this.localDestino = dados;
+    if(dados) this.openDrawer = true;
+    else this.openDrawer = false;
+    this.classOpenDrawer = true;
+  }
+
+  selecionadoTrajeto(informacao: string) {
+    console.log("pai" + informacao);
+    this.classOpenDrawer = !this.classOpenDrawer;
   }
 
 }

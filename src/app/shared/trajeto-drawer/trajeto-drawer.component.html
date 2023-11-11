@@ -1,0 +1,67 @@
+<div *ngIf="open; else clossed">
+  
+  <ion-button size="small" expand="full" (click)="openOrClossed()" color="light">
+    <ion-icon slot="icon-only" name="chevron-down" size="small"></ion-icon>
+  </ion-button>
+
+  <ion-card (click)="itemSecionado(item)" *ngFor="let item of lista">
+    <ion-card-header>
+      <ion-card-title>{{formatarTempo(viagens.tempo) }} &nbsp;{{item}}</ion-card-title>
+      <ion-card-subtitle>&nbsp;- Chega às {{ dataAtual | date:'shortTime' }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <app-trajeto-card [itens]="itens"></app-trajeto-card> 
+      <app-recurso-card [viagens]="viagens"></app-recurso-card>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</div>
+
+<ng-template #clossed>
+
+  <ion-button size="small" expand="full" (click)="openOrClossed()" color="light">
+    <ion-icon slot="icon-only" name="chevron-up" size="small"></ion-icon>
+  </ion-button>
+
+  <div *ngIf="isSelecionado(); else vazio">
+  
+    <ion-card (click)="itemSecionado(item)" *ngFor="let item of lista">
+      <ion-card-header>
+        <ion-card-title>{{formatarTempo(viagens.tempo) }} &nbsp;{{item}}</ion-card-title>
+        <ion-card-subtitle>&nbsp;- Chega às {{ dataAtual | date:'shortTime' }}</ion-card-subtitle>
+      </ion-card-header>
+  
+      <ion-card-content>
+  
+        <app-trajeto-card [itens]="itens"></app-trajeto-card> 
+        <app-recurso-card [viagens]="viagens"></app-recurso-card>
+  
+      </ion-card-content>
+  
+    </ion-card>
+  
+  </div>
+
+</ng-template>
+
+<ng-template #vazio>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title></ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <p>Nenhum trajeto selecionado.</p>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ng-template>
