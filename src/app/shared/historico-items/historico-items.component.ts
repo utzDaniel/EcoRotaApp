@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Viagens } from 'src/app/core/types/type';
+import { HistoricoItem } from 'src/app/core/types/type';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
 @Component({
@@ -10,22 +10,24 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 export class HistoricoItemsComponent  implements OnInit {
 
   @Input()
-  viagens: Viagens[];
+  historicoItem: HistoricoItem[];
 
   index: number = 0;
-  items: Viagens[] = [];
+  items: HistoricoItem[] = [];
 
 
   constructor() { }
 
   ngOnInit() :void {
-    this.atualizarItems(5);
+    if(this.historicoItem.length) {
+      this.atualizarItems(5);
+    }
   }
 
   private atualizarItems(count: number) :void {
     for(let i = 0; i < count; i++){
-        if(this.index < this.viagens.length){
-          this.items.push(this.viagens[this.index]);
+        if(this.index < this.historicoItem.length){
+          this.items.push(this.historicoItem[this.index]);
           this.index++;
         }
     }

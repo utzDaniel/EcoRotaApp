@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { User } from 'src/app/core/types/type';
-
 
 @Component({
   selector: 'app-conta',
   templateUrl: './conta.page.html',
   styleUrls: ['./conta.page.scss'],
 })
-export class ContaPage implements OnInit {
+export class ContaPage implements OnInit, OnDestroy {
   user: User;
 
   constructor(private cadastro: CadastroService, 
@@ -18,13 +17,9 @@ export class ContaPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    // this.cadastro.buscarCadastro().subscribe((user: User) =>{
-    //   this.user = user;
-    // })
-    this.user = {
-      'nome': 'Daniel',
-      'email': 'teste@gmail.com'
-    }
+    this.cadastro.buscarCadastro().subscribe((user: User) =>{
+      this.user = user;
+    })
   }
 
   editar(): void {
@@ -32,11 +27,17 @@ export class ContaPage implements OnInit {
   }
 
   preferencia(): void {
-    this.router.navigate(['/conta/preferencia', this.user]);
+    this.router.navigate(['/conta/preferencia', this.user.preferencia]);
   }
 
   sair(): void {
     this.userService.logout();
     this.router.navigate(['/login']);
   }
+
+  ngOnDestroy() :void{
+    console.log("OnDestroy");
+    console.log("Conta");
+  }
+
 }

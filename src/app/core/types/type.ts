@@ -1,6 +1,14 @@
 export class User {
     nome: string | null;
     email: string | null;
+    preferencia: Preferencia;
+  }
+
+  export interface Preferencia {
+    onibusAtivo: boolean;
+    metroAtivo: boolean;
+    bicicletaAtivo: boolean;
+    opcaoTrajeto: number;
   }
 
   export interface Login {
@@ -26,12 +34,26 @@ export class User {
   }
 
   export interface Opcao {
-    label: string;
-    value: any;
+    id: number;
+    nome: string;
   }
 
-  export interface Viagens {
-    data: string
+  export interface Historico {
+    distancia: HistoricoRecurso
+    tempo: HistoricoRecurso;
+    carbono: HistoricoRecurso;
+    dinheiro: HistoricoRecurso;
+    item: HistoricoItem[];
+  }
+
+  export interface HistoricoRecurso {
+    nome: string
+    soma: number;
+    medida: string;
+  }
+
+  export interface HistoricoItem {
+    data: string;
     partida: string;
     destino: string;
     distancia: number;

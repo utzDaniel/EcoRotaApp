@@ -1,18 +1,66 @@
 <ion-content>
 
-  <ion-grid class="grid__1" color="dark">
+  <ion-grid *ngIf="historico">
     <ion-row>
-      <ion-card >
-        <ion-card-content>
-          <ion-icon name="cash" size="large"></ion-icon>
-          <ion-text> {{ 10.0 | currency : 'BRL'}}</ion-text> 
-        </ion-card-content>
-      </ion-card>
+      
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ historico.distancia.nome }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="footsteps" size="large" color="primary"></ion-icon>
+            <ion-text> {{ historico.distancia.soma }} {{historico.distancia.medida}} </ion-text> 
+          </ion-card-content>
+        </ion-card> 
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ historico.tempo.nome }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="hourglass" size="large" color="warning"></ion-icon>
+            <ion-text> {{ historico.tempo.soma }} {{historico.tempo.medida}}</ion-text> 
+          </ion-card-content>
+        </ion-card> 
+      </ion-col>
+
     </ion-row>
   </ion-grid>
 
-  <app-historico-items [viagens]="viagens"></app-historico-items>
+  <ion-grid *ngIf="historico">
+    <ion-row>
 
+      <ion-col>
+        <ion-card >
+          <ion-card-header>
+            <ion-card-subtitle>{{ historico.carbono.nome }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content >
+            <ion-icon name="flame" size="large" color="danger"></ion-icon>
+            <ion-text > {{ historico.carbono.soma }} {{historico.carbono.medida}}</ion-text> 
+          </ion-card-content>
+        </ion-card> 
+      </ion-col>
 
-  
+      <ion-col>
+        <ion-card >
+          <ion-card-header>
+            <ion-card-subtitle>{{ historico.dinheiro.nome }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content >
+            <ion-icon name="cash" size="large" color="success"></ion-icon>
+            <ion-text > {{ historico.dinheiro.soma | currency : historico.dinheiro.medida}}</ion-text> 
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <div></div>
+
+  <app-historico-items *ngIf="historico" [historicoItem]="historico.item"></app-historico-items>
 </ion-content>

@@ -1,5 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Opcao } from 'src/app/core/types/type';
+import { CadastroService } from 'src/app/core/services/cadastro.service';
+import { DominioService } from 'src/app/core/services/dominio.service';
+import { User } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-preferencia-conta',
@@ -8,39 +11,30 @@ import { Opcao } from 'src/app/core/types/type';
 })
 export class PreferenciaContaPage implements OnInit, OnDestroy {
 
-  opcoesTransporte: Opcao[];
+  transporte: Opcao[];
   opcoesTrajeto: Opcao[];
-  opcaoSelecionadaTrajeto: number;
+  user: User;
 
-  constructor() { 
+  constructor(private cadastroService: CadastroService, 
+    private dominioService: DominioService) { 
   }
 
   ngOnInit() :void {
-    this.opcoesTransporte = [
-      { label: 'Ônibus', value: false },
-      { label: 'Metro', value: true },
-      { label: 'Bicicleta', value: true }
-    ];
-    this.opcoesTrajeto = [
-      { label: 'Melhor trajeto', value: 1 },
-      { label: 'Mais sustentável', value: 2 },
-      { label: 'Mais econômico', value: 3 }
-    ];
-    this.opcaoSelecionadaTrajeto = 2;
-  }
-
-  selecionarIcon(label: string) :string {
-  if(label === 'Ônibus') 
-    return 'bus';
-  else if(label === 'Metro') 
-    return 'subway';
-  else (label === 'Bicicleta') 
-    return 'bicycle';
+    this.cadastroService.buscarCadastro().subscribe((user: User) =>{
+      this.user = user;
+    });
+    this.dominioService.buscarTransporte().subscribe((transporte: Opcao[]) =>{
+      this.transporte = transporte;
+    });
+    this.dominioService.buscarOpcaoTrajeto().subscribe((opcoesTrajeto: Opcao[]) =>{
+      this.opcoesTrajeto = opcoesTrajeto;
+    });
   }
 
   ngOnDestroy() :void{
-    console.log("OnDestroy");
-    console.log("Save");
+    this.cadastroService.editarPreferencia(this.user.preferencia).subscribe(() =>{
+      //console.log("Save");
+    });
   }
 
 }

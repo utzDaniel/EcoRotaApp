@@ -21,15 +21,10 @@ const routes: Routes = [
     },
     {
       path: '',
-      redirectTo: 'historico',
+      redirectTo: 'transporte',
       pathMatch: 'full'
     }
   ]
-},
-{
-  path: '',
-  redirectTo: 'transporte',
-  pathMatch: 'full'
 }  
 ];
 

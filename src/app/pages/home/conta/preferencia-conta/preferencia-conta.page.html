@@ -10,24 +10,36 @@
 <ion-content [fullscreen]="true">
   <ion-grid class="grid__1">
     <ion-row>
-      <ion-list lines="none" color="success">
+      <ion-list *ngIf="transporte && user" lines="none" color="success">
         <ion-list-header>
           <ion-label>Meios de transporte: </ion-label>
         </ion-list-header>
-          <ion-item *ngFor="let opcao of opcoesTransporte">
-            <ion-icon [name]="selecionarIcon(opcao.label)" ></ion-icon>
-            <ion-toggle color="success" [(ngModel)]="opcao.value" [checked]="opcao.value">{{ opcao.label }}</ion-toggle>
+
+          <ion-item >
+            <ion-icon name="bus"></ion-icon>
+            <ion-toggle color="success" [(ngModel)]="user.preferencia.onibusAtivo" [checked]="user.preferencia.onibusAtivo">{{ transporte[0].nome }}</ion-toggle>
           </ion-item>
+
+          <ion-item >
+            <ion-icon name="subway"></ion-icon>
+            <ion-toggle color="success" [(ngModel)]="user.preferencia.metroAtivo" [checked]="user.preferencia.metroAtivo">{{ transporte[1].nome }}</ion-toggle>
+          </ion-item>
+
+          <ion-item >
+            <ion-icon name="bicycle"></ion-icon>
+            <ion-toggle color="success" [(ngModel)]="user.preferencia.bicicletaAtivo" [checked]="user.preferencia.bicicletaAtivo">{{ transporte[2].nome }}</ion-toggle>
+          </ion-item>
+
       </ion-list>
     
-      <ion-radio-group  value="opcaoSelecionadaTrajeto" [(ngModel)]="opcaoSelecionadaTrajeto" value="end">
-        <ion-list lines="none" color="success">
+      <ion-radio-group *ngIf="opcoesTrajeto && user" value="user.preferencia.opcaoTrajeto" [(ngModel)]="user.preferencia.opcaoTrajeto" value="end">
+        <ion-list  lines="none" color="success">
           <ion-list-header>
             Opções de trajeto:
           </ion-list-header>
           <ion-item *ngFor="let opcao of opcoesTrajeto">
-            <ion-radio [value]="opcao.value" labelPlacement="end" justify="start" color="success">
-              {{ opcao.label }}
+            <ion-radio [value]="opcao.id" labelPlacement="end" justify="start" color="success">
+              {{ opcao.nome }}
             </ion-radio>
           </ion-item>
         </ion-list>
