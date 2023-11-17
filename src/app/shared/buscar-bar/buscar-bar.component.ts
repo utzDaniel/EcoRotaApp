@@ -57,7 +57,6 @@ export class BuscarBarComponent implements OnInit {
   }
 
   selectItem(label: string) :void {
-    console.log("selectItem");
     const query = label.toLowerCase();
     this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1).slice(0, 3);
     this.retorno = this.data.find((d) => d.toLowerCase() === query);

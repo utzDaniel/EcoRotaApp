@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Trajeto } from 'src/app/core/types/type';
-import { HistoricoItem } from 'src/app/core/types/type';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Mapa } from 'src/app/core/types/type';
+import { Opcao } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-trajeto-drawer',
@@ -9,41 +9,26 @@ import { HistoricoItem } from 'src/app/core/types/type';
 })
 export class TrajetoDrawerComponent  implements OnInit {
 
+  @Input() 
+  mapa: Mapa;
+
   @Output() 
   selecionado = new EventEmitter<number>();
 
   open: boolean;
-  itens: Trajeto[];
-  lista: number[];
-  viagens: HistoricoItem;
-  trajetoSecionado: number;
-
-  dataAtual: Date;
+  index: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.lista = [0,1,2];
     this.open = true;
-    this.trajetoSecionado = -1;
-    this.itens = [{
-      nome: 'Caminhada', numero: 0, tempo: 4
-    },{
-      nome: 'Ônibus', numero: 7449, tempo: 20
-    },{
-      nome: 'Bicicleta', numero: 0, tempo: 5
-    },{
-      nome: 'Caminhada', numero: 0, tempo: 9
-    }
-  ];
-  this.viagens = {data: '2023-01-01 19:30:00', partida: 'MG-005, 70 - Rosario II, Sabará - MG, 34700-190', destino: 'MG-005, 70 - Rosario II, Sabará - MG, 34700-190', distancia: 10, tempo: 70, carbono: 12, dinheiro: 5.80}
-  this.dataAtual = new Date(new Date().getTime() + this.viagens.tempo * 60000);
+    this.index = -1;
   }
 
   openOrClossed() :void {
-    this.trajetoSecionado = -1;
+    this.index = -1;
     this.open = !this.open;
-    this.selecionado.emit(this.trajetoSecionado);
+    this.selecionado.emit(this.index);
   }
 
   formatarTempo(minutos: number): string {
@@ -59,14 +44,22 @@ export class TrajetoDrawerComponent  implements OnInit {
     }
   }
 
-  itemSecionado(item: number) :void {
-    this.trajetoSecionado = item;
+  dataChegada(minutos: number): Date {
+    return new Date(new Date().getTime() + minutos * 60000);
+  }
+
+  opcaoSelecionado(opcao: Opcao) :void {
+    this.index = this.mapa.opcoes.indexOf(opcao);
     this.open = false;
-    this.selecionado.emit(this.trajetoSecionado);
+    this.selecionado.emit(this.index);
   }
 
   isSelecionado() :boolean {
-    return this.trajetoSecionado >= 0;
+    return this.index >= 0;
+  }
+
+  buscarSelecionado() :Opcao {
+    return this.mapa.opcoes[this.index];
   }
 
 }

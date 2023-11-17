@@ -27,7 +27,14 @@ ion-col {
     --ion-grid-padding-xs: 0px;
   }
 
-  .open_drawer {
+  .open_drawer_1 {
+    transition: 0.5s ease;
+    position: relative;
+    left: 0px;
+    bottom: 17%;
+  }
+
+  .open_drawer_2 {
     transition: 0.5s ease;
     position: relative;
     left: 0px;

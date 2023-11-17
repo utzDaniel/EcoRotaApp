@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HistoricoItem } from 'src/app/core/types/type';
+import { Recurso } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-recurso-card',
@@ -9,7 +9,7 @@ import { HistoricoItem } from 'src/app/core/types/type';
 export class RecursoCardComponent  implements OnInit {
 
   @Input()
-  viagens: HistoricoItem;
+  recurso: Recurso;
 
   constructor() { }
 

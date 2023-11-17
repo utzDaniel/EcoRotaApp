@@ -1,12 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/conta" text=""></ion-back-button>
+      <ion-back-button defaultHref="/home/conta" text=""></ion-back-button>
     </ion-buttons>
     <ion-title>Editar conta</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true" scroll-y="false">
   <form class="grid__1" [formGroup]="editarForm" novalidate>
     <ion-item>
       <ion-input class="input" placeholder="email" disabled="true" [value]="user.email"/>

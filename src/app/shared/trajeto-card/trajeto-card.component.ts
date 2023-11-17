@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Trajeto } from 'src/app/core/types/type';
+import { Deslocamento } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-trajeto-card',
@@ -9,7 +9,7 @@ import { Trajeto } from 'src/app/core/types/type';
 export class TrajetoCardComponent  implements OnInit {
 
   @Input()
-  itens: Trajeto[];
+  deslocamentos: Deslocamento[];
 
   constructor() { }
 
@@ -26,9 +26,9 @@ export class TrajetoCardComponent  implements OnInit {
     else return 'subway';
   }
 
-  selectText(trajeto: Trajeto) :number  {
-    if(trajeto.nome == 'Ônibus') return trajeto.numero;
-    else return trajeto.tempo;
+  selectText(deslocamento: Deslocamento) :number  {
+    if(deslocamento.nome == 'Ônibus') return deslocamento.numero;
+    else return deslocamento.recurso.tempo;
   }
 
 }

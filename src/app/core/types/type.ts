@@ -33,9 +33,15 @@ export class User {
     senhaAtual: string;
   }
 
-  export interface Opcao {
+  export interface Dominio {
     id: number;
     nome: string;
+  }
+
+  export interface Local {
+    id: number;
+    nome: string;
+    point: Point;
   }
 
   export interface Historico {
@@ -62,8 +68,34 @@ export class User {
     dinheiro: number;
   }
 
-  export interface Trajeto {
+  export class Mapa {
+    partida: number;
+    destino: number;
+    opcoes: Opcao[];
+  }
+
+  export interface Opcao {
+    deslocamento: Deslocamento[];
+    recurso: Recurso;
+    selecionado: boolean;
+  }
+
+  export interface Deslocamento {
+    idTrajeto: number;
     nome: string;
     numero: number;
+    recurso: Recurso;
+    points: Point[]
+  }
+
+  export interface Recurso {
+    distancia: number;
     tempo: number;
+    carbono: number;
+    dinheiro: number;
+  }
+
+  export interface Point {
+    x: number;
+    y: number;
   }

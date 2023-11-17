@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Opcao } from 'src/app/core/types/type';
+import { Dominio } from 'src/app/core/types/type';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { DominioService } from 'src/app/core/services/dominio.service';
 import { User } from 'src/app/core/types/type';
@@ -11,8 +11,8 @@ import { User } from 'src/app/core/types/type';
 })
 export class PreferenciaContaPage implements OnInit, OnDestroy {
 
-  transporte: Opcao[];
-  opcoesTrajeto: Opcao[];
+  transporte: Dominio[];
+  opcoesTrajeto: Dominio[];
   user: User;
 
   constructor(private cadastroService: CadastroService, 
@@ -23,10 +23,10 @@ export class PreferenciaContaPage implements OnInit, OnDestroy {
     this.cadastroService.buscarCadastro().subscribe((user: User) =>{
       this.user = user;
     });
-    this.dominioService.buscarTransporte().subscribe((transporte: Opcao[]) =>{
+    this.dominioService.buscarTransporte().subscribe((transporte: Dominio[]) =>{
       this.transporte = transporte;
     });
-    this.dominioService.buscarOpcaoTrajeto().subscribe((opcoesTrajeto: Opcao[]) =>{
+    this.dominioService.buscarOpcaoTrajeto().subscribe((opcoesTrajeto: Dominio[]) =>{
       this.opcoesTrajeto = opcoesTrajeto;
     });
   }

@@ -46,8 +46,7 @@ export class EditarContaPage implements OnInit {
       this.cadastroService.editarCadastro(editarCadastro).subscribe({
         next: () => {
           console.log('Cadastro atualizado com sucesso');
-          this.user.nome = editarCadastro.nome;
-          this.router.navigate(['/conta', this.user]);
+          this.router.navigate(['home/conta']);
         },
         error: (err) => {
           console.log('Erro ao atualizar cadastro', err)

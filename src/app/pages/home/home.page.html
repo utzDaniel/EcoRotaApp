@@ -1,17 +1,17 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="transporte" href="/transporte">
+    <ion-tab-button (click)="tabClick('transporte')" tab="transporte" >
       <ion-icon aria-hidden="true" name="location"></ion-icon>
       <ion-label>Ir</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="historico" href="/historico">
+    <ion-tab-button (click)="tabClick('historico')" tab="historico" >
       <ion-icon aria-hidden="true" name="stats-chart"></ion-icon>
       <ion-label>Historico</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="conta" href="/conta">
+    <ion-tab-button (click)="tabClick('conta')" tab="conta" >
       <ion-icon aria-hidden="true" name="person"></ion-icon>
       <ion-label>Conta</ion-label>
     </ion-tab-button>

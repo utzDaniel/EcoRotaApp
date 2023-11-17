@@ -1,9 +1,9 @@
-<ion-content>
+<ion-content scroll-y="false">
   
   <ion-grid [fixed]="true">
     <ion-row class="ion-justify-content-center">
       <ion-col> 
-        <app-buscar-bar [data]="dataLocalPartida" texto="Insira local de partida" (retornar)="retornoLocalPartida($event)">
+        <app-buscar-bar *ngIf="dataLocalPartida" [data]="dataLocalPartida" texto="Insira local de partida" (retornar)="retornoLocalPartida($event)">
         </app-buscar-bar>
       </ion-col>
     </ion-row>
@@ -12,7 +12,7 @@
   <ion-grid [fixed]="true">
     <ion-row class="ion-justify-content-center">
       <ion-col> 
-        <app-buscar-bar *ngIf="localPartida" 
+        <app-buscar-bar *ngIf="openDestino" 
           [data]="dataLocalDestino" texto="Insira local de destino" (retornar)="retornoLocalDestino($event)">
         </app-buscar-bar>
       </ion-col>
@@ -28,8 +28,9 @@
   </ion-grid>
 
   <app-trajeto-drawer *ngIf="openDrawer; else logo"
-    [ngClass]="classOpenDrawer ? 'open_drawer' : 'closed_drawer' " 
-    (selecionado)="selecionadoTrajeto($event)">
+    [ngClass]="selecionarClassOpenDrawer()" 
+    [mapa]="mapa"
+    (selecionado)="selecionadoOpcao($event)">
   </app-trajeto-drawer>
   
   <ng-template #logo>

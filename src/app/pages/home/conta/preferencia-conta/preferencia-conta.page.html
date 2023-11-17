@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/conta" text=""></ion-back-button>
+      <ion-back-button defaultHref="/home/conta" text=""></ion-back-button>
     </ion-buttons>
     <ion-title>Preferência conta</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" scroll-y="false">
   <ion-grid class="grid__1">
     <ion-row>
       <ion-list *ngIf="transporte && user" lines="none" color="success">
