@@ -19,13 +19,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col> 
-        <ion-img class="center" alt="mapa do app" src="assets/img/mapa.png" ></ion-img>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <app-chart-line></app-chart-line>
 
   <app-trajeto-drawer *ngIf="openDrawer; else logo"
     [ngClass]="selecionarClassOpenDrawer()" 

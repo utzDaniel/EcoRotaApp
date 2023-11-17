@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DominioService } from 'src/app/core/services/dominio.service';
 import { MapaService } from 'src/app/core/services/mapa.service';
 import { HistoricoService} from 'src/app/core/services/historico.service';
+import { ChartLineComponent} from 'src/app/shared/chart-line/chart-line.component';
 import { Local } from 'src/app/core/types/type';
 import { Mapa } from 'src/app/core/types/type';
 import { Historico } from 'src/app/core/types/type';
@@ -14,10 +15,14 @@ import { Historico } from 'src/app/core/types/type';
 })
 export class TransportePage implements OnInit {
 
+  @ViewChild(ChartLineComponent, { static: false }) 
+  childComponent: ChartLineComponent;
+
   locais: Local[];
   dataLocalPartida: String[];
   dataLocalDestino: String[];
   mapa: Mapa;
+  partida: Local;
   openDestino: boolean;
   openDrawer: boolean;
   classOpenDrawer: boolean;
@@ -45,6 +50,7 @@ export class TransportePage implements OnInit {
     this.openDrawer = false;
     this.classOpenDrawer = true;
     this.selecionado = false;
+    if(this.childComponent) this.childComponent.newData([]);
   }
 
   retornoLocalPartida(dados: any) :void {
@@ -60,6 +66,7 @@ export class TransportePage implements OnInit {
       this.mapaService.buscarMapa(this.mapa).subscribe((mapa: Mapa) =>{
         this.mapa = mapa;
         this.openDrawer = true;
+        this.childComponent.newData(mapa.opcoes[0].deslocamento[0].points);
       });
     }
     else this.openDrawer = false;
@@ -88,12 +95,22 @@ export class TransportePage implements OnInit {
     if (local) {
       if(partida){
         this.mapa.partida = local.id;
+        this.childComponent.newData([local.point]);
         this.openDestino = true;
+        this.partida = local;
       }else{
         this.mapa.destino = local.id;
+        this.childComponent.addData(local.point);
       }
-    }else if(partida){
-      this.openDestino = false;
+    }else{
+      if(partida){
+        this.openDestino = false;
+        this.childComponent.newData([]);
+      }else if(this.childComponent.sizeData() == 2){
+        this.childComponent.removeUltimoData();
+      }else{
+        this.childComponent.newData([this.partida.point]);
+      }
     }
   }
 

@@ -1,16 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit  } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { Point } from 'src/app/core/types/type';
 
 @Component({
-  selector: 'app-chart-bar',
-  templateUrl: './chart-bar.component.html',
-  styleUrls: ['./chart-bar.component.scss'],
+  selector: 'app-chart-line',
+  templateUrl: './chart-line.component.html',
+  styleUrls: ['./chart-line.component.scss'],
 })
-export class ChartBarComponent  implements OnInit {
+export class ChartLineComponent  implements OnInit, AfterViewInit  {
 
-  @ViewChild('barCanvas') barCanvas: any;
-  barChart: any;
- 
+  @ViewChild('lineChart') lineCanvas: any;
+  lineChart: any;
+
+  chart: Chart;
 
   constructor() { }
 
@@ -19,98 +21,102 @@ export class ChartBarComponent  implements OnInit {
   }
 
   ngAfterViewInit(){
-    setTimeout(() => {
-      this.barChart = this.getBarChart();
-    }, 150);
+    this.lineChart = this.getLineCanvasChart();
   }
 
   getChart(context:any, chartType:any, data:any, options?:any) {
-    const chart = new Chart(context, {
+    this.chart = new Chart(context, {
       data,
       options,
       type: chartType
     });
-    return chart;
+    return this.chart;
   }
 
-  getBarChart(){
+  generateRange(n: number){
+    return Array.from({length: n}, (_, i) => i + 1);
+}
+
+  getLineCanvasChart(){
+    const labels = this.generateRange(813);
     const data = {
-      labels: ['Distancia', 'Tempo', 'Carbono', 'Dinheiro'],
+      labels: labels,
       datasets: [{
-        label: 'Porcentagem',
-        data: [10, 15, 10, 80],
-        backgroundColor: ['#4F94FF', '#FFD534', '#ff4961','#2FDF75'],
-        borderColor: 'rgba(255,255,255)',
+        label: 'Ponto',
+        data: [],
+        backgroundColor: 'rgb(82,131,240)',
+        fill: false,
+        borderColor: 'rgb(82,131,240)',
+        tension: 0.1,
         borderWidth: 0,
-        borderRadius: 0,
-        hoverBorderWidth: 2
-    }]
+        pointBorderWidth: 1,
+        pointHitRadius: 1
+      }]
     };
+    
     const options = {
       scales: {
         y: {
           axis: "y",
-          beginAtZero: true,
+          beginAtZero: false,
           border: {
             color: 'rgba(255,255,255)',
             display: false,
             dash: [],
             dashOffset: 0,
-            width: 1
+            width: 0
           },
           bounds: "ticks",
           clip: false,
-          display: 'auto',
+          display: false,
           grace: 0,
           grid: {
             color: 'rgba(255,255,255)',
-            display: true,
-            drawOnChartArea: true,
+            display: false,
+            drawOnChartArea: false,
             drawTicks: false,
-            lineWidth: 1,
+            lineWidth: 0,
             offset: false,
             tickColor: 'rgba(255,255,255)',
             tickLength: 0,
-            tickWidth: 10
+            tickWidth: 0
           },
           id:"y",
-          min: 0,
-          max: 100,
           offset: false, 
           position: "left", 
-          reverse: false,
+          reverse: true,
           ticks: {
             align: "center",
-            autoSkip: true,
-            autoSkipPadding: 1,
+            autoSkip: false,
+            autoSkipPadding: 0,
             backdropColor: "rgba(255,255,255)",
-            backdropPadding: 2,
+            backdropPadding: 0,
             color: "rgba(255,255,255)",
             crossAlign: "near",
-            display: true,
+            display: false,
             labelOffset: 0,
             major: {},
             maxRotation: 50,
             minRotation: 0,
             minor: {},
             mirror: false,
-            padding: 3,
+            padding: 0,
             showLabelBackdrop: false,
             textStrokeColor: "",
-            textStrokeWidth: 0,
-            maxTicksLimit: 5,
-            count: 5
+            textStrokeWidth: 0
           },
           title: {
             color: 'rgba(255,255,255)',
             display: false,
             padding: {
-              bottom: 4,
-              top: 4,
+              bottom: 0,
+              top: 0,
             }
           },
           type: "linear", 
-          backgroundColor: '#28BA62'
+          backgroundColor: 'rgb(0,0,0)',
+          min: 0,
+          max: 834,
         },
         x: {
           axis: "x",
@@ -124,55 +130,53 @@ export class ChartBarComponent  implements OnInit {
           },
           bounds: "ticks",
           clip: true,
-          display: true,
+          display: false,
           grace: 0,
           grid: {
             color: 'rgba(255,255,255)',
             display: false,
-            drawOnChartArea: true,
-            drawTicks: true,
-            lineWidth: 1,
+            drawOnChartArea: false,
+            drawTicks: false,
+            lineWidth: 0,
             offset: false,
             tickColor: 'rgba(255,255,255)',
-            tickLength: 3,
+            tickLength: 0,
             tickWidth: 0
           },
           id:"x",
-          offset: true, 
+          offset: false, 
           position: "bottom", 
           reverse: false,
           ticks: {
             align: "center",
-            autoSkip: true,
-            autoSkipPadding: 3,
+            autoSkip: false,
+            autoSkipPadding: 0,
             backdropColor: "rgba(255,255,255)",
-            backdropPadding: 2,
+            backdropPadding: 0,
             color: "rgba(255,255,255)",
             crossAlign: "near",
-            display: true,
+            display: false,
             labelOffset: 0,
             major: {},
             maxRotation: 50,
             minRotation: 0,
             minor: {},
             mirror: false,
-            padding: 3,
+            padding: 0,
             showLabelBackdrop: false,
             textStrokeColor: "",
-            textStrokeWidth: 0,
-            stepSize: 0.5
+            textStrokeWidth: 0
           },
           title: {
             color: 'rgba(255,255,255)',
-            display: true,
+            display: false,
             padding: {
-              bottom: 4,
-              top: 4,
+              bottom: 0,
+              top: 0,
             }
           },
           type: "category",
-          weight: 10,
-          suggestedMin: 50
+          backgroundColor: 'rgb(0,0,0)'
         }
       },
       plugins: {
@@ -184,14 +188,37 @@ export class ChartBarComponent  implements OnInit {
           },
           title:{
             color: 'rgb(255, 99, 132)',
-            display: true,
+            display: false,
             text: "total"
           }
-          
         }
       }
     }
-
-    return this.getChart(this.barCanvas.nativeElement, 'bar', data, options);
+    
+    return this.getChart(this.lineCanvas.nativeElement, 'line', data, options);
   }
+
+  sizeData() :number {
+    return this.chart.data.datasets[0].data.length;
+  }
+
+  addData(data: Point):void {
+    this.chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    this.chart.update();
+  }
+
+  newData(data: Point[]) :void {
+    this.chart.data.datasets[0].data = data;
+    this.chart.update();
+  }
+
+  removeUltimoData() :void {
+    this.chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    this.chart.update();
+  }
+
 }

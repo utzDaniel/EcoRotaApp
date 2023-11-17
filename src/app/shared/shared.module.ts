@@ -4,6 +4,7 @@ import { BuscarBarComponent } from 'src/app/shared/buscar-bar/buscar-bar.compone
 import { HistoricoItemsComponent } from 'src/app/shared/historico-items/historico-items.component';
 import { CommonModule } from '@angular/common';
 import { ChartBarComponent } from 'src/app/shared/chart-bar/chart-bar.component';
+import { ChartLineComponent } from 'src/app/shared/chart-line/chart-line.component';
 import { TrajetoDrawerComponent } from 'src/app/shared/trajeto-drawer/trajeto-drawer.component';
 import { TrajetoCardComponent } from 'src/app/shared/trajeto-card/trajeto-card.component';
 import { RecursoCardComponent } from 'src/app/shared/recurso-card/recurso-card.component';
@@ -12,6 +13,7 @@ import { RecursoCardComponent } from 'src/app/shared/recurso-card/recurso-card.c
   declarations:[BuscarBarComponent, 
     HistoricoItemsComponent, 
     ChartBarComponent, 
+    ChartLineComponent,
     TrajetoDrawerComponent,
     TrajetoCardComponent,
     RecursoCardComponent],
@@ -19,6 +21,7 @@ import { RecursoCardComponent } from 'src/app/shared/recurso-card/recurso-card.c
   exports: [BuscarBarComponent,
      HistoricoItemsComponent, 
      ChartBarComponent, 
+     ChartLineComponent,
      TrajetoDrawerComponent, 
      TrajetoCardComponent,
      RecursoCardComponent],
