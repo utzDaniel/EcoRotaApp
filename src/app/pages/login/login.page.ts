@@ -11,6 +11,7 @@ import { AutenticacaoService } from 'src/app/core/services/autenticacao.service'
 export class LoginPage implements OnInit {
 
   public loginForm: FormGroup;
+  imageLoaded:boolean;
 
     constructor(private authService: AutenticacaoService, 
       private router: Router, 
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit(): void {
+    this.imageLoaded = false;
     this.loginForm = this.formBuilder.group({
       email: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]],
       senha: ['', [Validators.required]]

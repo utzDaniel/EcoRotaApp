@@ -1,13 +1,10 @@
 <ion-content [fullscreen]="true" scroll-y="false">
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-img alt="imagem do aplicativo" src="assets/img/EcoRota.png" ></ion-img>
-      <ion-text>Faça login para acessar sua conta </ion-text>
-    </ion-toolbar>
-  </ion-header>
+  <ion-img alt="imagem do aplicativo" src="assets/img/logo_EcoRota.png"></ion-img>
   
-  <form [formGroup]="loginForm"  novalidate>
+  <ion-text class="infoPage">Faça login para acessar sua conta </ion-text>
+  
+  <form [formGroup]="loginForm" novalidate>
     <div class="ion-padding">
 
       <ion-item>

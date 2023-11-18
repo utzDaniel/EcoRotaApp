@@ -48,14 +48,14 @@ ion-col {
     left: 0px;
     bottom: 0px;
   }
-
   .grid__2{
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
+    width: 35%;
+    margin: auto;
     ion-img{
         align-items: center;
         margin: auto;
-        width: 35%;
     }
-}
+  }

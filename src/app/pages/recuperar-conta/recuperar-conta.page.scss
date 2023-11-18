@@ -1,3 +1,9 @@
+ion-img{
+    align-items: center;
+    margin: auto;
+    height: 50%;
+}
+
 .input{
     font-weight: 300;
 }
@@ -8,9 +14,11 @@ ion-item {
     margin-bottom: 16px;
 }
 
-ion-header{
+.infoPage{
     text-align: center;
+    display: block;
 }
+
 
 ion-button{
     margin: 30px;

@@ -54,13 +54,15 @@ ion-avatar{
 }
 
 .grid__2{
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
+    width: 50%;
+    margin: auto;
     ion-img{
         align-items: center;
         margin: auto;
-        width: 50%;
+        width: 100%;
     }
 }
 

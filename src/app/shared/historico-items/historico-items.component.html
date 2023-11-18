@@ -1,4 +1,4 @@
-<div *ngIf="historicoItem.length; else listaVazia">
+<div *ngIf="isItems(); else listaVazia">
   <ion-card *ngFor="let item of items" [ngClass]="item == items[0] ? 'item_card_primeiro' : 'item_card'">
     <ion-card-header>
       <ion-card-title>{{ item.data | date:'dd/MM/yyyy HH:mm' }}</ion-card-title>

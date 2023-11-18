@@ -24,6 +24,13 @@ export class HistoricoItemsComponent  implements OnInit {
     }
   }
 
+  isItems() :boolean {
+    if(this.historicoItem.length) {
+      this.atualizarItems(5);
+    }
+    return this.historicoItem.length > 0;
+  }
+
   private atualizarItems(count: number) :void {
     for(let i = 0; i < count; i++){
         if(this.index < this.historicoItem.length){
